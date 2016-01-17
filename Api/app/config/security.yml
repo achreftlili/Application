@@ -1,0 +1,34 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        default:
+            anonymous: ~
+
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            form_login:
+               provider: fos_userbundle
+               check_path: fos_oauth_server_auth_login_check
+               login_path: fos_oauth_server_auth_login
+            anonymous:    true
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+
+    access_control:
+        # You can omit this if /api can be accessed both authenticated and anonymously
+        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
