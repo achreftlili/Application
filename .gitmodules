@@ -1,0 +1,6 @@
+[submodule "my-api/vendor/bundles/FOS/OAuthServerBundle"]
+	path = my-api/vendor/bundles/FOS/OAuthServerBundle
+	url = git://github.com/FriendsOfSymfony/FOSOAuthServerBundle.git
+[submodule "my-api/vendor/oauth2-php"]
+	path = my-api/vendor/oauth2-php
+	url = git://github.com/FriendsOfSymfony/oauth2-php.git
