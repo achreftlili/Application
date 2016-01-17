@@ -23,5 +23,8 @@ class RefreshToken extends BaseRefreshToken
      * @ORM\JoinColumn(nullable=false)
      */
     protected $client;
-
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    protected $user;
 }

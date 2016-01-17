@@ -1,0 +1,23 @@
+
+
+command to create client 
+app/console user:oauth-server:client:create 
+
+--redirect-uri="http://localhost:3000/"
+--grant-type="authorization_code" 
+--grant-type="password" 
+--grant-type="refresh_token"
+--grant-type="token" 
+--grant-type="client_credentials"
+
+
+
+
+
+to get token and refresh token
+http://127.0.0.1:8000/oauth/v2/token?
+grant_type=password
+&client_id=1_45mopc52fqckkkcw4s0k04sk4c8kkcskgwokw88kwc8wkwcsgg
+&client_secret=4ilk2c3mjaqsg88o8os8kws0cogssk0w8ggc8kso0ckcs4swgo
+&username=admin
+&password=admin

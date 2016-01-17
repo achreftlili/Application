@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -85,6 +85,16 @@ nelmio_api_doc:
         request_format:
             formats:
                 json:       "application/json"
+        authentication:             # default is `~` (`null`), if set, the sandbox automatically
+                                       # send authenticated requests using the configured `delivery`
+
+            name: access_token      # access token name or query parameter name or header name
+
+            delivery: query          # `query`, `http`, and `header` are supported
+
+            # Required if http delivery is selected.
+            type:     bearer         # `basic`, `bearer` are supported
+
                 
 fos_user:
     db_driver: orm

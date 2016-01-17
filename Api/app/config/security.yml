@@ -1,6 +1,9 @@
 security:
     encoders:
         FOS\UserBundle\Model\UserInterface: bcrypt
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
@@ -9,9 +12,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
-
-        default:
-            anonymous: ~
 
         oauth_token:
             pattern:    ^/oauth/v2/token
